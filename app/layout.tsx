@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import MainAppBar from '@/components/containers/navbar/MainNavBar'
+import Copyright from '@/components/containers/footer/Copyright'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -19,6 +21,8 @@ export default function RootLayout({
       <body className={inter.className}>
       <MainAppBar></MainAppBar>
         {children}
+      <Copyright/>
+
       </body>
     </html>
   )
