@@ -14,7 +14,6 @@ COPY --from=BUILD_IMAGE /app/.next ./.next
 
 # Copying static files from our artifacts as per docs https://nextjs.org/docs/pages/api-reference/next-config-js/output
 
-
 COPY --from=BUILD_IMAGE /app/public ./public
 COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
 
