@@ -4,6 +4,7 @@ const nextConfig = {
     //     outputStandalone: true,
     // }
     output: 'standalone',
+    profiler: true,
 }
 
 module.exports = nextConfig
