@@ -1,0 +1,11 @@
+{
+    // Configure your terminal to use bash terminal as the default profile.
+    "configurations": [
+    {
+        "command": "npm run dev",
+        "name": "Run npm start",
+        "request": "launch",
+        "type": "node-terminal"
+    }
+    ]
+}

@@ -20,7 +20,7 @@ const JobSearch = () => {
         justifyContent="center"
         sx={{ minHeight: '20vh' }}
         >
-       
+            
         <Grid item xs={9}>
             
             <Box sx={{
