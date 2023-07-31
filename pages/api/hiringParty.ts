@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         console.log("POST method detected.")
     }
     
-    async function getJobListing() {
+    async function getHiringParties() {
         const hiringParty = await prisma.hiringParty.findFirst({
             where: { name: 'Alice' },
         });
@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(200).json(hiringParty)
     }
     
-    await getJobListing()
+    await getHiringParties()
     .then(async () => {
         await prisma.$disconnect()
     })
