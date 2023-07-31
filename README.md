@@ -38,7 +38,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 npx prisma generate
 
-
+# Seed the database 
+# get more detail from here
+# https://www.prisma.io/docs/guides/migrate/seed-database
+npx prisma db seed
 
 
 
