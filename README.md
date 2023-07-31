@@ -37,3 +37,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## To regenerate the data, please run 
 
 npx prisma generate
+
+
+
+
+
