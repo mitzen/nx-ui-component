@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const MyServerComponent = async () =>  {
   
@@ -9,9 +9,9 @@ const MyServerComponent = async () =>  {
   
   return (
     <div>
-    <ul>
-    { cmdList.map(x => <li>{x.name}</li>)}
-    </ul>
+      <ul>
+        { cmdList.map(x => <li key={x.name}>{x.name}</li>)}
+      </ul>
     </div>
     )
   }
