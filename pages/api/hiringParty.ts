@@ -4,19 +4,17 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-    console.log(req);
-    res.json("ok");
-
     const prisma = new PrismaClient() 
-    
     if (req.method == "POST") {
         console.log("POST method detected.")
     }
     
     async function getJobListing() {
-        const jobs = await prisma.jobs.findMany()
-        console.log(jobs)
-        res.status(200).json(jobs)
+        const hiringParty = await prisma.hiringParty.findFirst({
+            where: { name: 'Alice' },
+        });
+
+        res.status(200).json(hiringParty)
     }
     
     await getJobListing()
