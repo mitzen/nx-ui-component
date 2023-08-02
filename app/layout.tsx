@@ -1,8 +1,11 @@
 import './globals.css'
+import { Providers } from '@/lib/providers'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import MainAppBar from '@/components/containers/navbar/MainNavBar'
 import Copyright from '@/components/containers/footer/Copyright'
+
+import { Nav } from '@/components/Nav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,13 +20,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-      <MainAppBar></MainAppBar>
-        {children}
-      <Copyright/>
+    <Providers>
+      <html lang="en">
+        <body className={inter.className}>
+          <MainAppBar></MainAppBar>
+             {children}
 
-      </body>
-    </html>
-  )
-}
+             <p> Nav element here </p>
+          <Nav />
+          <Copyright/>
+        </body>
+      </html>
+    </Providers>
+    )
+  }
+  
