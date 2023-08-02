@@ -12,11 +12,8 @@ export default async function Home() {
 
   return (
   <div>
-    <Counter />
     <ProTip/>
     <JobSearch />
-
-    <CounterShadow />
     <TopJobs />
    </div>
   ) 
