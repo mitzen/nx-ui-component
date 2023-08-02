@@ -1,12 +1,27 @@
 "use client"
 
 import * as React from 'react';
+import { useState } from 'react'
+
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+/* Instruments */
+import {
+    useSelector,
+    useDispatch,
+    selectCount,
+    incrementAsync,
+    incrementIfOddAsync,
+    selectJobModel,
+  } from '@/lib/redux';
 
 const JobSearch = () => {
+
+    const dispatch = useDispatch()
+    const jobModel = useSelector(selectJobModel)
+    const [incrementAmount, setIncrementAmount] = useState(2)
 
     let executeSearch = (): void => {
         console.log("hello")
@@ -28,9 +43,9 @@ const JobSearch = () => {
                 gridTemplateColumns: { sm: '1fr 1fr 1fr 1fr' },
                 gap: 2,
             }}>    
-                <TextField id="filled-basic" label="Search" variant="filled" />
-                <TextField id="filled-basic" label="Classification" variant="filled" />
-                <TextField id="filled-basic" label="Location" variant="filled" />
+                <TextField id="filled-basic" label={jobModel.searchText} variant="filled" />
+                <TextField id="filled-basic" label={jobModel.jobCategory} variant="filled" />
+                <TextField id="filled-basic" label={jobModel.jobLocation} variant="filled" />
                 <Button variant="outlined" onClick={executeSearch}>Search</Button>
       
             </Box>

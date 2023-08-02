@@ -11,7 +11,6 @@ export default async function Home() {
     <ProTip/>
     <JobSearch />
     <TopJobs />
-    <CounterShadow />
    </div>
   ) 
 }

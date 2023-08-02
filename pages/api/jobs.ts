@@ -16,11 +16,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.json("ok");       
         
         let page = 1;
+        
         if (req.query && req.query.page) {
             page = parseInt(req.query.page as string);
         }
         
-        async function getJobListing() {
+        const getJobListing  = async function () {
             const jobs = await prisma.jobs.findMany({
                 skip: page * pageSize, 
                 take: pageSize

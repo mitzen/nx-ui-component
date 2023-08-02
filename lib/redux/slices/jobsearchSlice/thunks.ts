@@ -1,9 +1,10 @@
 /* Instruments */
 //import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
 import { searchJobByCriteria as FetchJobs, getJobPostingById } from './fetchJobs'
-import { counterSlice, JobSearch } from './jobsearchSlice'
+import { JobSearch } from './jobsearchSlice'
 import type { ReduxThunkAction } from '@/lib/redux'
 import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
+import { jobsearchSlice } from './jobsearchSlice'
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -14,7 +15,6 @@ export const searchJobAsync = createAppAsyncThunk(
   'counter/fetchIdentityCount',
   async (jobsearchCriteria: JobSearch) => {
     const response = await FetchJobs(jobsearchCriteria)
-
     // The value we return becomes the `fulfilled` action payload
     return response.data
   }
@@ -33,5 +33,5 @@ export const getJobById =
 (postingId: number): ReduxThunkAction =>
 async (dispatch, getState) => {
   const response = await getJobPostingById(postingId)
-  dispatch(counterSlice.actions.setCurrentJobPosting(response.data))
+  dispatch(jobsearchSlice.actions.setCurrentJobPosting(response.data))
 }

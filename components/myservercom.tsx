@@ -10,7 +10,7 @@ const MyServerComponent = async () =>  {
   return (
     <div>
     <ul>
-    { cmdList.map(x => <li>{x.name}</li>)}
+    { cmdList.map(x => <li key={x.name}>{x.name}</li>)}
     </ul>
     </div>
     )
