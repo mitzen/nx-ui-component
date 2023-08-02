@@ -11,11 +11,11 @@ import { jobsearchSlice } from './jobsearchSlice'
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
+
 export const searchJobAsync = createAppAsyncThunk(
-  'counter/fetchIdentityCount',
+  'jobsearch/searchJobAsync',
   async (jobsearchCriteria: JobSearch) => {
     const response = await FetchJobs(jobsearchCriteria)
-    // The value we return becomes the `fulfilled` action payload
     return response.data
   }
 )
