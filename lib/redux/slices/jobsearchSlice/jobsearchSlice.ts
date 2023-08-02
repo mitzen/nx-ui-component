@@ -4,7 +4,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { searchJobAsync } from './thunks'
 
 const initialState: JobSearchSliceState = {
-  searchText: "",
+  searchText: "Please enter search criteria",
   jobCategory: "",
   jobLocation: "",
   jobResult: [],
@@ -14,7 +14,7 @@ const initialState: JobSearchSliceState = {
   status: 'idle',
 }
 
-export const counterSlice = createSlice({
+export const jobsearchSlice = createSlice({
   name: 'jobsearch',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions

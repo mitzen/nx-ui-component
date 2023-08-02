@@ -6,15 +6,12 @@ import { CounterShadow } from '@/components/Counter/CounterShadow';
 
 export default async function Home() {
   
-  const res = await fetch('https://api.github.com/repos/vercel/next.js')
-  const repo1 = await res.json()
-  console.log(repo1)
-
   return (
   <div>
     <ProTip/>
     <JobSearch />
     <TopJobs />
+    <CounterShadow />
    </div>
   ) 
 }
