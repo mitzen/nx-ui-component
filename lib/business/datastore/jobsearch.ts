@@ -1,17 +1,19 @@
-import { PrismaClient } from '@prisma/client';
+import 'reflect-metadata';
 import { Model } from '../../model/posting';
+import { inject, injectable } from 'tsyringe';
+import {  PrismaClient } from '@prisma/client';
 
 export namespace Business.Datastore 
-{       
+{   
+    @injectable()
     export class JobSearch 
     {     
         pageSize = 10;    
-        prisma: PrismaClient;
 
-        constructor(dbClient: PrismaClient)
-        {
-            this.prisma = dbClient;
-        }
+        constructor(
+        @inject('PrismaClient')
+        private prisma: PrismaClient,
+        ) {}
         
         public async executeSearchForJobListing(searchCriteria: Model.JobSearchModel) {
             
