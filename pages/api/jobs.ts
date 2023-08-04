@@ -1,7 +1,8 @@
 import 'reflect-metadata';
 import { NextApiRequest, NextApiResponse } from 'next'
 import { Business } from '@/lib/business/datastore/jobsearch';
-import { PrismaClient } from '@prisma/client';
+import { container } from "tsyringe";
+import { Utils } from '@/lib/utils/objectfactory';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     
@@ -14,9 +15,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         if (req.query && req.query.page) {
             page = parseInt(req.query.page as string);
-        }
+        }        
+               
+        Utils.ObjectFactory.initFactory();
+
+        let search = container.resolve(Business.Datastore.JobSearch);
         
-        let search = new Business.Datastore.JobSearch(new PrismaClient())
         search.executeSearchForJobListing({
             searchText: '',
             jobLocation: '',
