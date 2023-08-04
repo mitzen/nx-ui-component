@@ -2,13 +2,14 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 /* Instruments */
 import { searchJobAsync } from './thunks'
+import { Model } from '../../../model/posting';
 
-const initialState: JobSearchSliceState = {
+const initialState: Model.JobSearchSliceState = {
   searchText: "Please enter search criteria",
   jobCategory: "",
   jobLocation: "",
   jobResult: [],
-  currentJobPosting: <PostingInfo>{},
+  currentJobPosting: <Model.PostingInfo>{},
   pageNo: 1,
   pageSize: 10,
   status: 'idle',
@@ -33,10 +34,10 @@ export const jobsearchSlice = createSlice({
     setJobLocation: (state, action: PayloadAction<string>) => {
       state.jobLocation = action.payload
     },
-    setSearchResult: (state, action: PayloadAction<PostingInfo[]>) => {
+    setSearchResult: (state, action: PayloadAction<Model.PostingInfo[]>) => {
       state.jobResult = action.payload
     },
-    setCurrentJobPosting: (state, action: PayloadAction<PostingInfo>) => {
+    setCurrentJobPosting: (state, action: PayloadAction<Model.PostingInfo>) => {
       state.currentJobPosting = action.payload
     },
   },
@@ -54,25 +55,3 @@ export const jobsearchSlice = createSlice({
       })
   },
 })
-
-/* Types */
-export interface JobSearch { 
-  searchText: string,
-  jobCategory: string,
-  jobLocation: string,  
-}
-
-export interface PostingInfo { 
-  title: string,
-  description: string,
-  //createdAt: Date,
-  hiringParty: string  
-}
-
-export interface JobSearchSliceState extends JobSearch {
-  status: 'idle' | 'loading' | 'failed',
-  jobResult: PostingInfo[],
-  currentJobPosting: PostingInfo,
-  pageNo: number, 
-  pageSize: number
-}

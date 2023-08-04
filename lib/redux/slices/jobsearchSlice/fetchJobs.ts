@@ -1,30 +1,27 @@
-import { JobSearch, PostingInfo } from "."
+
+import { Model } from '../../../model/posting';
 
 export const searchJobByCriteria = async (
-  jobSearchCriteria: JobSearch
-): Promise<{ data: PostingInfo[] }> => {
- 
-  console.log('getting search criteria');
-  const response = await fetch('http://localhost:3000/api/identity-count', {
+  jobSearchCriteria: Model.JobSearch
+  ): Promise<{ data: Model.PostingInfo[] }> => {
+    
+    console.log('getting search criteria');
+    const response = await fetch('http://localhost:3000/api/identity-count', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ amount: jobSearchCriteria }),
   })
 
-  console.log('fetch job');
-  const result = await response.json()
-  return result
+  return await response.json()
 }
 
 export const getJobPostingById = async (
   postId: number
-): Promise<{ data: PostingInfo }> => {
-  const response = await fetch('http://localhost:3000/api/identity-count', {
+  ): Promise<{ data: Model.PostingInfo }> => {
+    const response = await fetch('http://localhost:3000/api/identity-count', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ postId }),
   })
-  const result = await response.json()
-  return result
+  return await response.json()
 }
-
