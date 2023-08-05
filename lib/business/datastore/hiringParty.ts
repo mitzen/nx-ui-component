@@ -6,7 +6,7 @@ import {  PrismaClient } from '@prisma/client';
 export namespace Business.Datastore 
 {   
     @injectable()
-    export class JobSearch 
+    export class HiringParty 
     {     
         pageSize = 10;
         
@@ -30,13 +30,13 @@ export namespace Business.Datastore
         }
 
         public async executeSearchById(searchId: string) {                        
-            const results = await this.prisma.jobs.findUnique({
+            const results = await this.prisma.hiringParty.findUnique({
                 where: { id: searchId }
             })
             return results;
         }
         
-        public async getJobListing(searchCriteria: Model.JobSearchModel) { 
+        public async getHiringParty(searchCriteria: Model.JobSearchModel) { 
             
             await this.executeSearchForJobListing(searchCriteria)
             .then(async () => {
@@ -49,7 +49,7 @@ export namespace Business.Datastore
             });
         }
 
-        public async getJobById(id: string) { 
+        public async getHiringPartyById(id: string) { 
 
             await this.executeSearchById(id)
             .then(async () => {

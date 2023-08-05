@@ -18,7 +18,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }        
                
         Utils.ObjectFactory.initFactory();
-
         let search = container.resolve(Business.Datastore.JobSearch);
         
         search.executeSearchForJobListing({
@@ -29,6 +28,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             pageSize: 10
 
         });
-        res.json("ok");
+        res.json("all jobs");
     }
 }
