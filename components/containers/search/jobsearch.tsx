@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useState } from 'react'
-
+import { Model } from '@/lib/model/posting';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -13,18 +13,13 @@ import {
     useSelector,
     useDispatch,
     searchJobAsync,
-    selectJobModel, JobSearch
+    selectJobModel
   } from '@/lib/redux';
 
 const JobSearch = () => {
 
     const dispatch = useDispatch()
     const jobModel = useSelector(selectJobModel)
-    const [incrementAmount, setIncrementAmount] = useState(2)
-
-    let executeSearch = (): void => {
-        console.log("hello")
-    }
 
     return (
         <Grid
@@ -32,7 +27,7 @@ const JobSearch = () => {
         spacing={0}
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: '20vh' }}
+        sx={{ minHeight: '20vh', marginTop: 10 }}
         >
             
         <Grid item xs={9}>
@@ -45,11 +40,8 @@ const JobSearch = () => {
                 <TextField id="filled-basic" label={jobModel.jobCategory} variant="filled" />
                 <TextField id="filled-basic" label={jobModel.jobLocation} variant="filled" />
                 <Button variant="outlined" onClick={(e) => { 
-                    //e.preventDefault();
-
-                    console.log('here we go');
-                    
-                    const searchCriteria: JobSearch = { searchText: jobModel.searchText, jobCategory: jobModel.jobCategory, jobLocation: jobModel.jobLocation }
+                    e.preventDefault();                    
+                    const searchCriteria: Model.JobSearch = { searchText: jobModel.searchText, jobCategory: jobModel.jobCategory, jobLocation: jobModel.jobLocation }
                     
                     dispatch(searchJobAsync(searchCriteria))
                     }}>Search</Button>

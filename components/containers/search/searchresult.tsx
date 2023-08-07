@@ -17,7 +17,7 @@ const SearchResult = () => {
                 display: 'grid',
                 gridTemplateColumns: { sm: '1fr 1fr 1fr' },
                 gap: 2,
-            }}>    
+            }}>
                Search Results
             </Box>
         </Grid>

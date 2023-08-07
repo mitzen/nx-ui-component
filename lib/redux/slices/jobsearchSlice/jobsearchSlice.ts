@@ -6,8 +6,8 @@ import { Model } from '../../../model/posting';
 
 const initialState: Model.JobSearchSliceState = {
   searchText: "Please enter search criteria",
-  jobCategory: "",
-  jobLocation: "",
+  jobCategory: "Category",
+  jobLocation: "Location",
   jobResult: [],
   currentJobPosting: <Model.PostingInfo>{},
   pageNo: 1,
