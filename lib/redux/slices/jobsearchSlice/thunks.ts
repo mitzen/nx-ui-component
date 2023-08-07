@@ -1,7 +1,7 @@
 /* Instruments */
 //import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
 import { searchJobByCriteria as FetchJobs, getJobPostingById } from './fetchJobs'
-import { JobSearch } from './jobsearchSlice'
+import { Model } from '@/lib/model/posting'
 import type { ReduxThunkAction } from '@/lib/redux'
 import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
 import { jobsearchSlice } from './jobsearchSlice'
@@ -14,7 +14,7 @@ import { jobsearchSlice } from './jobsearchSlice'
 
 export const searchJobAsync = createAppAsyncThunk(
   'jobsearch/searchJobAsync',
-  async (jobsearchCriteria: JobSearch) => {
+  async (jobsearchCriteria: Model.JobSearch) => {
     const response = await FetchJobs(jobsearchCriteria)
     return response.data
   }
