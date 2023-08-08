@@ -22,8 +22,11 @@ export namespace Business.Datastore
             pageSize = searchCriteria.pageSize;
             
             const results = await this.prisma.jobs.findMany({
-                where: { name: searchCriteria.searchText } ,
-                skip: searchCriteria.skip * pageSize, 
+                where: 
+                { 
+                  name: { contains: `${searchCriteria.searchText}` } 
+                },
+                //skip: searchCriteria.skip * pageSize, 
                 take: pageSize
             })
             return results;
@@ -31,7 +34,10 @@ export namespace Business.Datastore
 
         public async executeSearchById(searchId: string) {                        
             const results = await this.prisma.jobs.findUnique({
-                where: { id: searchId }
+                where: 
+                { 
+                   id: searchId
+                }
             })
             return results;
         }

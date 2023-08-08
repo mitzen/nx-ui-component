@@ -3,46 +3,44 @@ const prisma = new PrismaClient()
 
 async function main() {
     
-    //   const alice = await prisma.user.upsert({
-    //     where: { email: 'alice@prisma.io' },
-    //     update: {},
-    //     create: {
-    //       email: 'alice@prisma.io',
-    //       name: 'Alice',
-    //       posts: {
-    //         create: {
-    //           title: 'Check out Prisma with Next.js',
-    //           content: 'https://www.prisma.io/nextjs',
-    //           published: true,
-    //         },
-    //       },
-    //     },
-    //   })
-    
-    //   const bob = await prisma.user.upsert({
-    //     where: { email: 'bob@prisma.io' },
-    //     update: {},
-    //     create: {
-    //       email: 'bob@prisma.io',
-    //       name: 'Bob',
-    //       posts: {
-    //         create: [
-    //           {
-    //             title: 'Follow Prisma on Twitter',
-    //             content: 'https://twitter.com/prisma',
-    //             published: true,
-    //           },
-    //           {
-    //             title: 'Follow Nexus on Twitter',
-    //             content: 'https://twitter.com/nexusgql',
-    //             published: true,
-    //           },
-    //         ],
-    //       },
-    //     },
-    //   })
-    //   console.log({ alice, bob })
-}
+      // create jobs
+      for (let index = 0; index < 20; index++) {
+        const jobs = await prisma.jobs.create({
+            data: {
+              name: `Front end developer${index}`,
+              description: `front end developer description ${index}`,
+              jobInDetails: `we are seeking a highly motivated front end developer ${index}`,
+              createdAt: '2013-02-14T13:15:03-08:00',
+              updatedAt: '2013-02-14T13:15:03-08:00' 
+            }
+       })
+    }
+              
+       // create hiringparty
+      for (let index = 0; index < 20; index++) {
+        const hiringParty = await prisma.hiringParty.create({
+            data: {
+              name: `Front end developer${index}`,
+              email: `hiringparty@test.com${index}`,
+              createdAt: '2013-02-14T13:15:03-08:00',
+              updatedAt: '2013-02-14T13:15:03-08:00' 
+            }
+       })
+    }
+
+       // create job seekers 
+      for (let index = 0; index < 20; index++) {
+        const hiringParty = await prisma.jobSeeker.create({
+            data: {
+              firstname: `Jeremy ${index}`,
+              lastname: `Woo${index}`,
+              createdAt: '2013-02-14T13:15:03-08:00',
+              updatedAt: '2013-02-14T13:15:03-08:00' 
+            }
+       })
+    }
+ }      
+
 
 main()
 .then(async () => {

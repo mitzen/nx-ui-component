@@ -13,21 +13,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     {     
         let page = 1;
 
-        if (req.query && req.query.page) {
-            page = parseInt(req.query.page as string);
-        }        
-               
         Utils.ObjectFactory.initFactory();
         let search = container.resolve(Business.Datastore.JobSearch);
         
-        let result = await search.executeSearchForJobListing({
-            searchText: req.query.searchText as string,
-            jobLocation: req.query.location as string,
-            jobCategory: req.query.category as string,
-            skip: 10, 
-            pageSize: 10
-
-        });
+        let result = await search.getJobById("1");
         res.json(result);
     }
 }

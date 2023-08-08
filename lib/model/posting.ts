@@ -3,7 +3,9 @@ export namespace Model
     export interface JobSearch { 
         searchText: string,
         jobCategory: string,
-        jobLocation: string,  
+        jobLocation: string,
+        pageSize?: number,
+        skipPage?: number
     }
     
     export interface PostingInfo { 

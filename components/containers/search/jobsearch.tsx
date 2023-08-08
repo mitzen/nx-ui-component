@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import {
     useSelector,
     useDispatch,
-    searchJobAsync,
+    searchJobAsync, getJobById,
     selectJobModel
   } from '@/lib/redux';
 
@@ -42,8 +42,9 @@ const JobSearch = () => {
                 <Button variant="outlined" onClick={(e) => { 
                     e.preventDefault();                    
                     const searchCriteria: Model.JobSearch = { searchText: jobModel.searchText, jobCategory: jobModel.jobCategory, jobLocation: jobModel.jobLocation }
+
+                    dispatch(searchJobAsync(searchCriteria));
                     
-                    dispatch(searchJobAsync(searchCriteria))
                     }}>Search</Button>
       
             </Box>

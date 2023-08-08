@@ -32,6 +32,7 @@ export const searchJobAsync = createAppAsyncThunk(
 export const getJobById =
 (postingId: number): ReduxThunkAction =>
 async (dispatch, getState) => {
-  const response = await getJobPostingById(postingId)
-  dispatch(jobsearchSlice.actions.setCurrentJobPosting(response.data))
+  //const response = await getJobPostingById(postingId)
+  const response = getJobPostingById(postingId);
+  //dispatch(jobsearchSlice.actions.setCurrentJobPosting(response.data))
 }
