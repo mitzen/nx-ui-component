@@ -77,17 +77,6 @@ const JobSearch = () => {
       
             </Box>
         </Grid>
-
-
-        <Grid item xs={9}>
-          {
-            jobModel.jobResult.map(x => (
-              <div key={x.title}>
-                  {x.description}
-              </div>))
-          }        
-        </Grid>
-
     </Grid>
         )
     }

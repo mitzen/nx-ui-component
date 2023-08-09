@@ -8,6 +8,7 @@ export default async function Home() {
   return (
   <div>
     <JobSearch />
+    <SearchResult/>
     <TopJobs />
    </div>
   ) 

@@ -2,33 +2,37 @@
 
 import React from 'react'
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+
 import {
     useSelector,
     useDispatch, 
     selectJobModel
   } from '@/lib/redux';
 
-
 const SearchResult = () => {
 
-    //const dispatch = useDispatch();
-    //const jobModel = useSelector(selectJobModel);
-    debugger;
-    console.log("search result");
-    let result = [{ title: '1', description: 'desc', hiringParty: 'demo' }];
-    let jobModel = { jobResult: result }
+    const dispatch = useDispatch();
+    const jobModel = useSelector(selectJobModel);
 
     return (
-        <p>        
-        Search Results/more more more               {
-                jobModel.jobResult.map(x => (
-                    <div key={x.title}>
-                        {x.description}
-                    </div>
-                ))
-               }
-         </p>
+
+        <Grid
+        container
+        spacing={0}
+        alignItems="center"
+        justifyContent="center"
+        sx={{ minHeight: '20vh', marginTop: 10 }}
+        >
+
+        <Grid item xs={9}>
+        {
+          jobModel.jobResult.map(x => (
+            <div key={x.title}>
+                {x.description}
+            </div>))
+        }
+        </Grid>
+      </Grid>
     )
 }
 
