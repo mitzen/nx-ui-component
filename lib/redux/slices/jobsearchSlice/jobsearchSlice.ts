@@ -8,7 +8,7 @@ const initialState: Model.JobSearchSliceState = {
   searchText: "Please enter search criteria",
   jobCategory: "Category",
   jobLocation: "Location",
-  jobResult: [{ title: '1', description: 'desc', hiringParty: 'demo' }],
+  jobResult: [{ name: '1', description: 'desc', jobInDetails: 'demo' }],
   currentJobPosting: <Model.PostingInfo>{},
   pageNo: 1,
   pageSize: 10,

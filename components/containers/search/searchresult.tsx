@@ -21,17 +21,28 @@ const SearchResult = () => {
         spacing={0}
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: '20vh', marginTop: 10 }}
-        >
-
-        <Grid item xs={9}>
+        sx={{ minHeight: '20vh', marginTop: 10 }}>
         {
-          jobModel.jobResult.map(x => (
-            <div key={x.title}>
+          jobModel.jobResult.map(x => 
+            (
+            <> 
+            <Grid item xs={2}>
+            </Grid>
+            <Grid item xs={2}>
+                {x.name}
+            </Grid>
+            <Grid item xs={2}>
                 {x.description}
-            </div>))
+            </Grid>
+            <Grid item xs={5}>
+                {x.jobInDetails}
+            </Grid>
+            <Grid item xs={1}>
+            </Grid>
+            </>
+            ))
         }
-        </Grid>
+
       </Grid>
     )
 }

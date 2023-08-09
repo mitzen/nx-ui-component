@@ -9,10 +9,11 @@ export namespace Model
     }
     
     export interface PostingInfo { 
-        title: string,
+        name: string,
         description: string,
         //createdAt: Date,
-        hiringParty: string  
+        //updatedAt: Date,
+        jobInDetails: string
     }
     
     export interface JobSearchSliceState extends JobSearch {
