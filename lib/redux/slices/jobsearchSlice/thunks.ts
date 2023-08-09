@@ -4,7 +4,6 @@ import { searchJobByCriteria as FetchJobs, getJobPostingById } from './fetchJobs
 import { Model } from '@/lib/model/posting'
 import type { ReduxThunkAction } from '@/lib/redux'
 import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
-import { jobsearchSlice } from './jobsearchSlice'
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -15,8 +14,7 @@ import { jobsearchSlice } from './jobsearchSlice'
 export const searchJobAsync = createAppAsyncThunk(
   'jobsearch/searchJobAsync',
   async (jobsearchCriteria: Model.JobSearch) => {
-    const response = await FetchJobs(jobsearchCriteria)
-    return response.data
+    return await FetchJobs(jobsearchCriteria);
   }
 )
 
@@ -34,5 +32,6 @@ export const getJobById =
 async (dispatch, getState) => {
   //const response = await getJobPostingById(postingId)
   const response = getJobPostingById(postingId);
-  //dispatch(jobsearchSlice.actions.setCurrentJobPosting(response.data))
+  //dispatch(jobsearchSlice.actions.setCurrentJobPosting())
 }
+

@@ -67,6 +67,5 @@ export namespace Business.Datastore
                 process.exit(1)
             });
         }
-
     }
 }

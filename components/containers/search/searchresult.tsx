@@ -1,28 +1,35 @@
+"use client"
+
 import React from 'react'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import {
+    useSelector,
+    useDispatch, 
+    selectJobModel
+  } from '@/lib/redux';
+
 
 const SearchResult = () => {
-    return (
-        <Grid
-        container
-        spacing={0}
-        alignItems="center"
-        justifyContent="center"
-        sx={{ minHeight: '20vh' }}
-        >
 
-        <Grid item xs={8}>
-            <Box sx={{
-                display: 'grid',
-                gridTemplateColumns: { sm: '1fr 1fr 1fr' },
-                gap: 2,
-            }}>
-               Search Results
-            </Box>
-        </Grid>
-    </Grid>
-        )
+    //const dispatch = useDispatch();
+    //const jobModel = useSelector(selectJobModel);
+    debugger;
+    console.log("search result");
+    let result = [{ title: '1', description: 'desc', hiringParty: 'demo' }];
+    let jobModel = { jobResult: result }
+
+    return (
+        <p>        
+        Search Results/more more more               {
+                jobModel.jobResult.map(x => (
+                    <div key={x.title}>
+                        {x.description}
+                    </div>
+                ))
+               }
+         </p>
+    )
 }
 
 export default SearchResult

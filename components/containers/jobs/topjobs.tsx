@@ -17,8 +17,6 @@ const TopJobs = () => {
             <Grid item xs={11}>
                Top jobs based    on your search
             </Grid>
-           
-          
         </Grid>
             )
 }
