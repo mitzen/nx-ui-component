@@ -11,8 +11,8 @@ export namespace Model
     export interface PostingInfo { 
         name: string,
         description: string,
-        createdAt: Date,
-        updatedAt: Date,
+        createdAt?: Date,
+        updatedAt?: Date,
         jobInDetails: string
     }
     

@@ -43,3 +43,7 @@ npx prisma generate
 # https://www.prisma.io/docs/guides/migrate/seed-database
 
 npx prisma db seed
+
+# apollo setup
+
+npm install @apollo/client @apollo/server graphql graphql-tag @as-integrations/next
