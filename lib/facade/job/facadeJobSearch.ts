@@ -22,4 +22,9 @@ export class FacadeJobSearch
             pageSize: 10
         });
     }
+
+    public async executeSearchById(id: string): Promise<any> { 
+        let result = await this._search.getJobById(id);
+        return result;
+    }
 }

@@ -15,11 +15,11 @@ const resolvers = {
         let search = new FacadeJobSearch();
         return await search.executeJobQuery(args.searchText, args.jobCategory, args.jobLocation);
       },
-      async getJobById(parent, args: Model.JobSearch, contextValue, info) {
+      async getJobById(parent, args: Model.PostingId, contextValue, info) {
         let search = new FacadeJobSearch();
-        return await search.executeJobQuery(args.searchText, args.jobCategory, args.jobLocation);
-      },
-
+        let result = await search.executeSearchById(args.id);
+        return result;
+      }
     }
 };
 

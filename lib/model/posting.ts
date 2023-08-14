@@ -1,5 +1,9 @@
 export namespace Model 
 {
+    export interface PostingId { 
+        id: string
+    }
+
     export interface JobSearch { 
         searchText: string,
         jobCategory: string,
