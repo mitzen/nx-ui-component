@@ -1,50 +1,31 @@
-
-
 const typeDefs = /* GraphQL */ `
- type Query {
-    hello: String
-  }
 
-  type Query {
-    hello2: String
-  }
+type Query {
+    jobPostings(name: String, category: String, location: String): [PostingInfo]
+    getJobPostingsBy(searchText: String, jobCategory: String, jobLocation: String): [PostingInfo]
+    getJobById(id: String): PostingInfo
+}
 
-  type Query {
-    user(userId: Int): [User]
-  }
+type Mutation {
+    updateName(name: String!): PostingInfo!
+}
 
-  type User {
-    userId: Int,
-    firstName: String,
-    lastName: String,
-    email: String
-    orders: [Order]
-  }
+type PostingInfo {
+    id: String,
+    name: String,
+    description: String,
+    createdAt: String,
+    updatedAt: String,
+    jobInDetails: String
+}
 
-  type Order {
-    orderId: Int,
-    orderDate: String,
-    orderPrice: Float,
-    user: User, 
-    items: [Item]
-  }
+type JobSearch { 
+    searchText: String,
+    jobCategory: String,
+    jobLocation: String,
+    pageSize: Int,
+    skipPage: Int
+}
 
-  type Item {
-    itemId: Int,
-    itemName: String,
-    itemPrice: Float
-  }
-
-  type Book {
-    title: String
-    author: String
-  }
-
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
 `
 export default typeDefs

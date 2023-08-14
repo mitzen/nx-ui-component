@@ -32,7 +32,7 @@ export namespace Business.Datastore
             return results;
         }
 
-        public async executeSearchById(searchId: string) {                        
+        public async executeSearchById(searchId: string) {
             const results = await this.prisma.jobs.findUnique({
                 where: 
                 { 
