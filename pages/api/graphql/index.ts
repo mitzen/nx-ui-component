@@ -7,15 +7,15 @@ import { Model } from "@/lib/model/posting";
 
 const resolvers = {
     Query: {
-        async jobPostings(parent, args, contextValue, info) {
+        async jobPostings(parent: object, args: object, contextValue: object, info: object) {
         let search = new FacadeJobSearch();
         return await search.executeJobQuery("Front end", "", "");
       },
-      async getJobPostingsBy(parent, args: Model.JobSearch, contextValue, info) {
+      async getJobPostingsBy(parent: object, args: Model.JobSearch, contextValue: object, info: object) {
         let search = new FacadeJobSearch();
         return await search.executeJobQuery(args.searchText, args.jobCategory, args.jobLocation);
       },
-      async getJobById(parent, args: Model.PostingId, contextValue, info) {
+      async getJobById(parent: object, args: Model.PostingId, contextValue: object, info: object) {
         let search = new FacadeJobSearch();
         let result = await search.executeSearchById(args.id);
         return result;
