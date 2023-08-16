@@ -22,6 +22,7 @@ export namespace Model
     
     export interface JobSearchSliceState extends JobSearch {
         status: 'idle' | 'loading' | 'failed',
+        errorMessage: string
         jobResult: PostingInfo[],
         currentJobPosting: PostingInfo,
         pageNo: number, 

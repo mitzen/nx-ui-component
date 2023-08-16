@@ -8,6 +8,7 @@ const initialState: Model.JobSearchSliceState = {
   searchText: "Please enter search criteria",
   jobCategory: "Category",
   jobLocation: "Location",
+  errorMessage: "",
   jobResult: [{ name: '1', description: 'desc', jobInDetails: 'demo' }],
   currentJobPosting: <Model.PostingInfo>{},
   pageNo: 1,
@@ -21,7 +22,6 @@ export const jobsearchSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     setSearchText: (state, action: PayloadAction<string>) => {
-      debugger
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
@@ -52,8 +52,11 @@ export const jobsearchSlice = createSlice({
       })
       .addCase(searchJobAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        debugger;
         state.jobResult = action.payload as any;
+      })
+      .addCase(searchJobAsync.rejected, (state, action) => {
+        state.status = 'failed';
+        state.errorMessage = action.error.code + " " + action.error.message;
       })
   },
 })

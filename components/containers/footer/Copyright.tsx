@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Copyright() {
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center">
+    <Grid container direction="row" justifyContent="center" alignItems="center" sx={{ marginTop: 10 }}>
          <Grid item xs={4}>
             <Stack>
               <Item>Job seekers</Item>
