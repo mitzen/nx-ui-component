@@ -1,0 +1,12 @@
+.productInfo {
+    font-size: 12pt;
+    font-weight:bold;
+}
+
+.productDescription {
+    font-size: 10pt;
+}
+
+.product ul li {
+    display: block;
+}
