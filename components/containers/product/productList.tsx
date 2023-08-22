@@ -3,10 +3,6 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { StaticImage } from "./staticimage"
 
-// const DynamicHeader = dynamic(() => import('../components/header'), {
-//       loading: () => <p>Loading...</p>,
-// })
-
 const ProductList = () => {
     return (
         <Grid

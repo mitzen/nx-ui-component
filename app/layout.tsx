@@ -1,10 +1,10 @@
 import './globals.css'
 import { Providers } from '@/lib/providers'
 import type { Metadata } from 'next'
-import { ABeeZee, Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import MainAppBar from '@/components/containers/navbar/MainNavBar'
 import Copyright from '@/components/containers/footer/Copyright'
-import { Nav } from '@/components/Nav'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,13 +20,17 @@ export default function RootLayout({
 }) {
   return (
     <Providers>
+      
       <html lang="en">
         <body className={inter.className}>
+        <UserProvider>
           <MainAppBar></MainAppBar>
              {children}
           <Copyright/>
+          </UserProvider>
         </body>
       </html>
+
     </Providers>
     )
   }

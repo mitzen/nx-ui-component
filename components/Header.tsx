@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Link from 'next/link';
 
 const pages = ['Job search', 'Profile', 'Career advice'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -56,7 +57,11 @@ function NavLinks() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+          
+          <Link href="/api/auth/login">Login</Link>
+          &nbsp;/&nbsp;
+          <Link href="/api/auth/login">Logout</Link>
+         
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -70,6 +75,7 @@ function NavLinks() {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -90,10 +96,11 @@ function NavLinks() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
+
+            
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
