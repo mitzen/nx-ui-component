@@ -7,7 +7,8 @@ const nextConfig = {
         //outputStandalone: true,
         serverActions: true,
     },
-    output: 'standalone'
+    output: 'standalone',
+    reactStrictMode: true,
 }
 
 module.exports = nextConfig

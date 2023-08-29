@@ -1,6 +1,6 @@
-import ProductList from '@/components/containers/product/productlist';
+import ProductList from '@/components/containers/product/productList';
 
-export default function Home() {
+export default function Page() {
   return (
    <>
    <ProductList></ProductList>
